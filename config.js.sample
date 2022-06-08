@@ -1,0 +1,13 @@
+const config = {
+    key: 'YOUR-KRAKEN-API-KEY',
+    secret: 'YOUR-KRAKEN-API-SECRET',
+    interval_ms: 86400000,
+    order_params: {
+        pair: 'ADAUSDT',
+        type: 'buy',
+        volume: 5,
+        ordertype: 'market'
+    }
+}
+
+export default config
