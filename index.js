@@ -3,10 +3,11 @@ import Kraken from 'kraken-api'
 import { setInterval } from "timers";
 const kraken = new Kraken(config.key, config.secret);
 
+
 /**
  * Gets result from response object
  * @param res
- * @returns {RemoteObject | PropertyDescriptor[] | SearchMatch[] | Runtime.RemoteObject | ScriptCoverage[] | ScriptTypeProfile[] | T | SVGAnimatedString | string | ArrayBuffer}
+ * @returns {Object}
  */
 const getResult = (res) => {
 	return res.result
@@ -45,9 +46,13 @@ const placeOrder = async () => {
  * one for orders and the other for ticker data
  */
 (async () => {
+	// Place an order immediately
 	await placeOrder()
+	// Wait interval to place next order
 	setInterval(placeOrder, config.order_interval_ms)
-	// Add order and wait interval
+
+	// Get ticker data immediately
 	await getTickerData()
+	// Wait interval to get next ticker data
 	setInterval(getTickerData, config.ticker_interval_ms)
 })();
