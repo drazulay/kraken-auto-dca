@@ -3,13 +3,13 @@ import Kraken from 'kraken-api'
 import { setInterval } from "timers";
 const kraken = new Kraken(config.key, config.secret);
 
-
 /**
  * Gets result from response object
  * @param res
  * @returns {Object}
  */
 const getResult = (res) => {
+	res['date'] = Date.now()
 	return res.result
 }
 
@@ -21,7 +21,7 @@ const getTickerData = async () => {
 	await kraken.api('Ticker', { pair: config.order_params.pair }, (err, res) => {
 		if (err !== null) {
 			console.error('An error has occurred', err)
-			return;
+			return
 		}
 		console.log(getResult(res))
 	});
@@ -35,7 +35,7 @@ const placeOrder = async () => {
 	await kraken.api('AddOrder', config.order_params, (err, res) => {
 		if (err !== null) {
 			console.error('An error has occurred', err)
-			return;
+			return
 		}
 		console.log('Order placed', getResult(res))
 	});
