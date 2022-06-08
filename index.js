@@ -4,7 +4,7 @@ import { setInterval } from "timers";
 const kraken = new Kraken(config.key, config.secret);
 
 /**
- * Gets result from response object
+ * Gets result from response object and adds epoch time
  * @param res
  * @returns {Object}
  */
