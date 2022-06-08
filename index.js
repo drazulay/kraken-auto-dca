@@ -9,7 +9,7 @@ const kraken = new Kraken(config.key, config.secret);
  * @returns {Object}
  */
 const getResult = (res) => {
-	res['date'] = Date.now()
+	res.result['date'] = Date.now()
 	return res.result
 }
 
