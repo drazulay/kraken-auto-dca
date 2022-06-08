@@ -1,7 +1,8 @@
 const config = {
     key: 'YOUR-KRAKEN-API-KEY',
     secret: 'YOUR-KRAKEN-API-SECRET',
-    interval_ms: 86400000,
+    order_interval_ms: 86400000,
+    ticker_interval_ms: 10000,
     order_params: {
         pair: 'ADAUSDT',
         type: 'buy',
