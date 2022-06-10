@@ -31,7 +31,7 @@ const getTickerData = async () => {
  * Place an order
  * @returns {Promise<void>}
  */
-const placeOrder = async () => {
+const addOrder = async () => {
 	await kraken.api('AddOrder', config.order_params, (err, res) => {
 		if (err !== null) {
 			console.error('An error has occurred', err)
@@ -47,9 +47,9 @@ const placeOrder = async () => {
  */
 (async () => {
 	// Place an order immediately
-	await placeOrder()
+	await addOrder()
 	// Wait interval to place next order
-	setInterval(placeOrder, config.order_interval_ms)
+	setInterval(addOrder, config.order_interval_ms)
 
 	// Get ticker data immediately
 	await getTickerData()
