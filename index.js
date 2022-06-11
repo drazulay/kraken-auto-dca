@@ -52,7 +52,7 @@ const addOrder = async () => {
 	setInterval(addOrder, config.order_interval_ms)
 
 	// Get ticker data immediately
-	await getTickerData()
+	await ticker()
 	// Wait interval to get next ticker data
-	setInterval(getTickerData, config.ticker_interval_ms)
+	setInterval(ticker, config.ticker_interval_ms)
 })();
