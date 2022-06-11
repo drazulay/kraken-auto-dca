@@ -17,7 +17,7 @@ const getResult = (res) => {
  * Displays the current ticker information
  * @returns {Promise<void>}
  */
-const getTickerData = async () => {
+const ticker = async () => {
 	await kraken.api('Ticker', { pair: config.order_params.pair }, (err, res) => {
 		if (err !== null) {
 			console.error('An error has occurred', err)
